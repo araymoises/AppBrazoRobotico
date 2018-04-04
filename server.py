@@ -178,11 +178,13 @@ class Agarrar(Resource):
             a_rango_1 = 0
             a_rango_2 = 4
             response  = "La pinza agarro correctamente."
+            agarrar = 1
         else:
             a_orientacion=-1
             a_rango_1 = 4
             a_rango_2 = -1
             response  = "La pinza solto correctamente."
+            agarrar = 0
 
         while j < 50:
             for i in range(a_rango_1, a_rango_2, a_orientacion):
@@ -212,7 +214,6 @@ class Agarrar(Resource):
                     GPIO.output(22, 1)
                     print "i es 3"
                 j = j + 1
-        agarrar = 1
 	return response
 
 api.add_resource(Mover, '/mover/<x>/<y>')
