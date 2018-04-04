@@ -24,6 +24,8 @@ x_brazo = 0
 y_brazo = 0
 z_brazo = 0
 
+agarrar = 0
+
 class Mover(Resource):
     def get(self, x, y):
         if int(x)>=0 and int(y)>=0:
@@ -163,17 +165,55 @@ class Estirar(Resource):
 
 	return response
 
-class Employees_Name(Resource):
-    def get(self, employee_id):
-        #conn = db_connect.connect()
-        #query = conn.execute("select * from employees where EmployeeId =%d "  %int(employee_id))
-        #result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
-        #return jsonify(employee_id)
-	return employee_id
+class Agarrar(Resource):
+    def get(self):
+        global agarrar
+        #x_brazo = x_brazo + int(x)
+        #GPIO.cleanup()
+        if agarrar==0:
+            a_orientacion=1
+            a_rango_1 = 0
+            a_rango_2 = 4
+            response  = "La pinza agarró correctamente."
+        else:
+            a_orientacion=-1
+            a_rango_1 = 4
+            a_rango_2 = -1
+            response  = "La pinza soltó correctamente."
 
-api.add_resource(Mover, '/mover/<x>/<y>') # Route_1
-api.add_resource(Estirar, '/estirar/<z>') # Route_2
-api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
+        while a_brazo != int(z):
+            for i in range(a_rango_1, a_rango_2, a_orientacion):
+                time.sleep(0.01)
+                if i==0:
+                    GPIO.output(17, 1)
+                    GPIO.output(18, 1)
+                    GPIO.output(27, 0)
+                    GPIO.output(22, 0)
+                    print "i es 0"
+                if i==1:
+                    GPIO.output(17, 0)
+                    GPIO.output(18, 1)
+                    GPIO.output(27, 1)
+                    GPIO.output(22, 0)
+                    print "i es 1"
+                if i==2:
+                    GPIO.output(17, 0)
+                    GPIO.output(18, 0)
+                    GPIO.output(27, 1)
+                    GPIO.output(22, 1)
+                    print "i es 2"
+                if i==3:
+                    GPIO.output(17, 1)
+                    GPIO.output(18, 0)
+                    GPIO.output(27, 0)
+                    GPIO.output(22, 1)
+                    print "i es 3"
+        agarrar = 1
+	return response
+
+api.add_resource(Mover, '/mover/<x>/<y>')
+api.add_resource(Estirar, '/estirar/<z>')
+api.add_resource(Agarrar, '/agarrar')
 
 
 if __name__ == '__main__':
