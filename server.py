@@ -30,11 +30,15 @@ class Mover(Resource):
     	#GPIO.cleanup()
         if int(x)>x_brazo:
             orientacion=1
+            rango_1 = 0
+            rango_2 = 4
         else:
             orientacion=-1
+            rango_1 = 4
+            rango_2 = 0
 
     	while x_brazo != int(x):
-    		for i in range(4,0,orientacion):
+    		for i in range(rango_1,rango_2,orientacion):
     			time.sleep(0.01)
     			if i==0:
     				GPIO.output(17, 1)
