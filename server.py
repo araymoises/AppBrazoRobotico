@@ -3,7 +3,9 @@
 #source venv/bin/activate
 import RPi.GPIO as GPIO
 import time
+import BaseHTTPServer
 
+from SimpleHTTPServer import SimpleHTTPRequestHandler
 from flask import Flask, request
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
@@ -213,6 +215,11 @@ class Agarrar(Resource):
         agarrar = 1
 	return response
 
+class CORSRequestHandler (SimpleHTTPRequestHandler):
+    def end_headers (self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        SimpleHTTPRequestHandler.end_headers(self)
+
 api.add_resource(Mover, '/mover/<x>/<y>')
 api.add_resource(Estirar, '/estirar/<z>')
 api.add_resource(Agarrar, '/agarrar/')
@@ -220,3 +227,4 @@ api.add_resource(Agarrar, '/agarrar/')
 
 if __name__ == '__main__':
      app.run(port=5002,host='0.0.0.0')
+     BaseHTTPServer.test(CORSRequestHandler, BaseHTTPServer.HTTPServer)
