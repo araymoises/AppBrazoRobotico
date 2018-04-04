@@ -25,43 +25,43 @@ y_brazo = 0
 
 class Mover(Resource):
     def get(self, x, y):
-	global x_brazo
-    #x_brazo = x_brazo + int(x)
-	#GPIO.cleanup()
-    # if int(x)>x_brazo:
-    #     orientacion=1
-    # else:
-    #     orientacion=-1
-    #
-	while x_brazo != int(x):
-		for i in range(4,0,orientacion):
-			time.sleep(0.01)
-			if i==0:
-				GPIO.output(17, 1)
-				GPIO.output(18, 1)
-				GPIO.output(27, 0)
-				GPIO.output(22, 0)
-				print "i es 0"
-			if i==1:
-				GPIO.output(17, 0)
-				GPIO.output(18, 1)
-				GPIO.output(27, 1)
-				GPIO.output(22, 0)
-				print "i es 1"
-			if i==2:
-				GPIO.output(17, 0)
-				GPIO.output(18, 0)
-				GPIO.output(27, 1)
-				GPIO.output(22, 1)
-				print "i es 2"
-			if i==3:
-				GPIO.output(17, 1)
-				GPIO.output(18, 0)
-				GPIO.output(27, 0)
-				GPIO.output(22, 1)
-				print "i es 3"
-		x_brazo = x_brazo + 1
-		print x_brazo
+    	global x_brazo
+        #x_brazo = x_brazo + int(x)
+    	#GPIO.cleanup()
+        if int(x)>x_brazo:
+            orientacion=1
+        else:
+            orientacion=-1
+
+    	while x_brazo != int(x):
+    		for i in range(4,0,orientacion):
+    			time.sleep(0.01)
+    			if i==0:
+    				GPIO.output(17, 1)
+    				GPIO.output(18, 1)
+    				GPIO.output(27, 0)
+    				GPIO.output(22, 0)
+    				print "i es 0"
+    			if i==1:
+    				GPIO.output(17, 0)
+    				GPIO.output(18, 1)
+    				GPIO.output(27, 1)
+    				GPIO.output(22, 0)
+    				print "i es 1"
+    			if i==2:
+    				GPIO.output(17, 0)
+    				GPIO.output(18, 0)
+    				GPIO.output(27, 1)
+    				GPIO.output(22, 1)
+    				print "i es 2"
+    			if i==3:
+    				GPIO.output(17, 1)
+    				GPIO.output(18, 0)
+    				GPIO.output(27, 0)
+    				GPIO.output(22, 1)
+    				print "i es 3"
+    		x_brazo = x_brazo + 1
+    		print x_brazo
 	return x_brazo
 
 class Tracks(Resource):
