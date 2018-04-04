@@ -23,27 +23,22 @@ api = Api(app)
 x_brazo = 0
 y_brazo = 0
 z_brazo = 0
-x_rango_1 = 0
-x_rango_2 = 0
 
 class Mover(Resource):
     def get(self, x, y):
         if x>=0 and y>=0:
         	global x_brazo
         	global y_brazo
-        	global x_rango_1
-        	global x_rango_2
             #x_brazo = x_brazo + int(x)
         	#GPIO.cleanup()
-            def fname(x):
-                if int(x)>x_brazo:
-                    x_orientacion=1
-                    x_rango_1 = 0
-                    x_rango_2 = 4
-                else:
-                    x_orientacion=-1
-                    x_rango_1 = 4
-                    x_rango_2 = -1
+            # if int(x)>x_brazo:
+            #     x_orientacion=1
+            #     x_rango_1 = 0
+            #     x_rango_2 = 4
+            # else:
+            #     x_orientacion=-1
+            #     x_rango_1 = 4
+            #     x_rango_2 = -1
 
         	while x_brazo != int(x):
         		for i in range(x_rango_1, x_rango_2, x_orientacion):
