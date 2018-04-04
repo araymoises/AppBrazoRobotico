@@ -1,3 +1,5 @@
+#sudo webiopi -d -c /etc/webiopi/config
+#User: webiopi; Pass: raspberry
 #source venv/bin/activate
 import RPi.GPIO as GPIO
 import time
@@ -24,13 +26,13 @@ y_brazo = 0
 class Mover(Resource):
     def get(self, x, y):
 	#z = 0
-	#global x_brazo
+	global x_brazo
         #x_brazo = x_brazo + int(x)
 	#z = z + int(x)
 	#GPIO.cleanup()
 	#for j in range(0, 500):
-	while True:
-		for i in range(0,4):
+	while x_brazo != int(x):
+		for i in range(4,0,-1):
 			time.sleep(0.01)
 			if i==0:
 				GPIO.output(17, 1)
@@ -56,6 +58,8 @@ class Mover(Resource):
 				GPIO.output(27, 0)
 				GPIO.output(22, 1)
 				print "i es 3"
+		x_brazo = x_brazo + 1
+		print x_brazo
 	return x_brazo
 
 class Tracks(Resource):
@@ -80,4 +84,4 @@ api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
 
 
 if __name__ == '__main__':
-     app.run(port='5002')
+     app.run(port=5002,host='0.0.0.0')
