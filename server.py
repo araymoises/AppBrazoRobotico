@@ -167,7 +167,7 @@ class Employees_Name(Resource):
 	return employee_id
 
 api.add_resource(Mover, '/mover/<x>/<y>') # Route_1
-api.add_resource(Estirar, '/estirar') # Route_2
+api.add_resource(Estirar, '/estirar/<z>') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
 
 
