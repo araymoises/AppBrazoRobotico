@@ -25,15 +25,11 @@ y_brazo = 0
 
 class Mover(Resource):
     def get(self, x, y):
-	#z = 0
-    x = int(x)
 	global x_brazo
-        #x_brazo = x_brazo + int(x)
-	#z = z + int(x)
+    #x_brazo = x_brazo + int(x)
 	#GPIO.cleanup()
-	#for j in range(0, 500):
-    orientacion=1 if x>x_brazo else -1
-	while x_brazo != x:
+    orientacion=1 if int(x)>x_brazo else -1
+	while x_brazo != int(x):
 		for i in range(4,0,orientacion):
 			time.sleep(0.01)
 			if i==0:
