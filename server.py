@@ -115,48 +115,52 @@ class Mover(Resource):
 
 class Estirar(Resource):
     def get(self, z):
-        global z_brazo
-        #x_brazo = x_brazo + int(x)
-    	#GPIO.cleanup()
-        if int(z)>z_brazo:
-            z_orientacion=1
-            z_rango_1 = 0
-            z_rango_2 = 4
-        else:
-            z_orientacion=-1
-            z_rango_1 = 4
-            z_rango_2 = -1
+        if int(x)>=0 and int(y)>=0:
+                global z_brazo
+                #x_brazo = x_brazo + int(x)
+            	#GPIO.cleanup()
+                if int(z)>z_brazo:
+                    z_orientacion=1
+                    z_rango_1 = 0
+                    z_rango_2 = 4
+                else:
+                    z_orientacion=-1
+                    z_rango_1 = 4
+                    z_rango_2 = -1
 
-    	while z_brazo != int(z):
-    		for i in range(z_rango_1, z_rango_2, z_orientacion):
-    			time.sleep(0.01)
-    			if i==0:
-    				GPIO.output(17, 1)
-    				GPIO.output(18, 1)
-    				GPIO.output(27, 0)
-    				GPIO.output(22, 0)
-    				print "i es 0"
-    			if i==1:
-    				GPIO.output(17, 0)
-    				GPIO.output(18, 1)
-    				GPIO.output(27, 1)
-    				GPIO.output(22, 0)
-    				print "i es 1"
-    			if i==2:
-    				GPIO.output(17, 0)
-    				GPIO.output(18, 0)
-    				GPIO.output(27, 1)
-    				GPIO.output(22, 1)
-    				print "i es 2"
-    			if i==3:
-    				GPIO.output(17, 1)
-    				GPIO.output(18, 0)
-    				GPIO.output(27, 0)
-    				GPIO.output(22, 1)
-    				print "i es 3"
-    		z_brazo = z_brazo + z_orientacion
-    		print "Z: " + str(z_brazo)
-        response = str(z_brazo)
+            	while z_brazo != int(z):
+            		for i in range(z_rango_1, z_rango_2, z_orientacion):
+            			time.sleep(0.01)
+            			if i==0:
+            				GPIO.output(17, 1)
+            				GPIO.output(18, 1)
+            				GPIO.output(27, 0)
+            				GPIO.output(22, 0)
+            				print "i es 0"
+            			if i==1:
+            				GPIO.output(17, 0)
+            				GPIO.output(18, 1)
+            				GPIO.output(27, 1)
+            				GPIO.output(22, 0)
+            				print "i es 1"
+            			if i==2:
+            				GPIO.output(17, 0)
+            				GPIO.output(18, 0)
+            				GPIO.output(27, 1)
+            				GPIO.output(22, 1)
+            				print "i es 2"
+            			if i==3:
+            				GPIO.output(17, 1)
+            				GPIO.output(18, 0)
+            				GPIO.output(27, 0)
+            				GPIO.output(22, 1)
+            				print "i es 3"
+            		z_brazo = z_brazo + z_orientacion
+            		print "Z: " + str(z_brazo)
+                response = str(z_brazo)
+        else:
+                response = "Error: Los datos ingresados son menores que cero, o superaron el limite maximo."
+        
 	return response
 
 class Employees_Name(Resource):
