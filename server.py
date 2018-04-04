@@ -112,7 +112,7 @@ class Mover(Resource):
             				print "i es 3"
             		y_brazo = y_brazo + y_orientacion
             		print "Y: " + str(y_brazo)
-                response = str(x_brazo) + "," + str(y_brazo)
+                response = "La posicion de X ahora es:" + str(x_brazo) + ", y la de Y es:" + str(y_brazo)
         else:
                 response = "Error: Los datos ingresados son menores que cero, o superaron el limite maximo."
 	return response
@@ -161,7 +161,7 @@ class Estirar(Resource):
             				print "i es 3"
             		z_brazo = z_brazo + z_orientacion
             		print "Z: " + str(z_brazo)
-                response = str(z_brazo)
+                response = "La posicion de Z ahora es:" + str(z_brazo)
         else:
                 response = "Error: Los datos ingresados son menores que cero, o superaron el limite maximo."
 
