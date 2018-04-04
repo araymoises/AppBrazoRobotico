@@ -33,6 +33,7 @@ class Mover(Resource):
 	#for j in range(0, 500):
 	while x_brazo != int(x):
 		for i in range(4,0,-1):
+            #Oh chuluuuuuus!
 			time.sleep(0.01)
 			if i==0:
 				GPIO.output(17, 1)
