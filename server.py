@@ -26,13 +26,15 @@ y_brazo = 0
 class Mover(Resource):
     def get(self, x, y):
 	#z = 0
+    x = int(x)
 	global x_brazo
         #x_brazo = x_brazo + int(x)
 	#z = z + int(x)
 	#GPIO.cleanup()
 	#for j in range(0, 500):
-	while x_brazo != int(x):
-		for i in range(4,0,-1):
+    orientacion=1 if x>x_brazo else -1
+	while x_brazo != x:
+		for i in range(4,0,orientacion):
 			time.sleep(0.01)
 			if i==0:
 				GPIO.output(17, 1)
@@ -60,8 +62,6 @@ class Mover(Resource):
 				print "i es 3"
 		x_brazo = x_brazo + 1
 		print x_brazo
-    else:
-        print "X es igual a x_brazo."
 	return x_brazo
 
 class Tracks(Resource):
