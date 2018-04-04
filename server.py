@@ -115,7 +115,7 @@ class Mover(Resource):
 
 class Estirar(Resource):
     def get(self, z):
-        if int(x)>=0 and int(y)>=0:
+        if int(z)>=0:
                 global z_brazo
                 #x_brazo = x_brazo + int(x)
             	#GPIO.cleanup()
@@ -160,7 +160,7 @@ class Estirar(Resource):
                 response = str(z_brazo)
         else:
                 response = "Error: Los datos ingresados son menores que cero, o superaron el limite maximo."
-        
+
 	return response
 
 class Employees_Name(Resource):
