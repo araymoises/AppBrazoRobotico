@@ -175,12 +175,12 @@ class Agarrar(Resource):
             a_orientacion=1
             a_rango_1 = 0
             a_rango_2 = 4
-            response  = "La pinza agarró correctamente."
+            response  = "La pinza agarro correctamente."
         else:
             a_orientacion=-1
             a_rango_1 = 4
             a_rango_2 = -1
-            response  = "La pinza soltó correctamente."
+            response  = "La pinza solto correctamente."
 
         while j < 50:
             for i in range(a_rango_1, a_rango_2, a_orientacion):
