@@ -26,7 +26,7 @@ z_brazo = 0
 
 class Mover(Resource):
     def get(self, x, y):
-        if x>=0 and y>=0:
+        if int(x)>=0 and int(y)>=0:
             	global x_brazo
             	global y_brazo
                 #x_brazo = x_brazo + int(x)
