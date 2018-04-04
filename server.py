@@ -60,7 +60,7 @@ class Mover(Resource):
     				GPIO.output(27, 0)
     				GPIO.output(22, 1)
     				print "i es 3"
-    		x_brazo = x_brazo + 1
+    		x_brazo = x_brazo + orientacion
     		print x_brazo
 	return x_brazo
 
