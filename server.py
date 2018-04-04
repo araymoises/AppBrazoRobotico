@@ -31,16 +31,17 @@ class Mover(Resource):
         	global y_brazo
             #x_brazo = x_brazo + int(x)
         	#GPIO.cleanup()
-            # if int(x)>x_brazo:
-            #     x_orientacion=1
-            #     x_rango_1 = 0
-            #     x_rango_2 = 4
-            # else:
-            #     x_orientacion=-1
-            #     x_rango_1 = 4
-            #     x_rango_2 = -1
+
 
         	while x_brazo != int(x):
+                if int(x)>x_brazo:
+                    x_orientacion=1
+                    x_rango_1 = 0
+                    x_rango_2 = 4
+                else:
+                    x_orientacion=-1
+                    x_rango_1 = 4
+                    x_rango_2 = -1
         		for i in range(x_rango_1, x_rango_2, x_orientacion):
         			time.sleep(0.01)
         			if i==0:
@@ -70,16 +71,17 @@ class Mover(Resource):
         		x_brazo = x_brazo + x_orientacion
         		print "X: " + str(x_brazo)
 
-            if int(y)>y_brazo:
-                y_orientacion=1
-                y_rango_1 = 0
-                y_rango_2 = 4
-            else:
-                y_orientacion=-1
-                y_rango_1 = 4
-                y_rango_2 = -1
+
 
         	while y_brazo != int(y):
+                if int(y)>y_brazo:
+                    y_orientacion=1
+                    y_rango_1 = 0
+                    y_rango_2 = 4
+                else:
+                    y_orientacion=-1
+                    y_rango_1 = 4
+                    y_rango_2 = -1
         		for i in range(y_rango_1, y_rango_2, y_orientacion):
         			time.sleep(0.01)
         			if i==0:
