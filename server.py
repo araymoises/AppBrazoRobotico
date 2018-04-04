@@ -28,11 +28,11 @@ class Mover(Resource):
 	global x_brazo
     #x_brazo = x_brazo + int(x)
 	#GPIO.cleanup()
-    if int(x)>x_brazo:
-        orientacion=1
-    else:
-        orientacion=-1
-        
+    # if int(x)>x_brazo:
+    #     orientacion=1
+    # else:
+    #     orientacion=-1
+    #
 	while x_brazo != int(x):
 		for i in range(4,0,orientacion):
 			time.sleep(0.01)
