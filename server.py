@@ -74,14 +74,14 @@ class Mover(Resource):
 
 
         	while y_brazo != int(y):
-                if int(y)>y_brazo:
-                    y_orientacion=1
-                    y_rango_1 = 0
-                    y_rango_2 = 4
-                else:
-                    y_orientacion=-1
-                    y_rango_1 = 4
-                    y_rango_2 = -1
+                    if int(y)>y_brazo:
+                        y_orientacion=1
+                        y_rango_1 = 0
+                        y_rango_2 = 4
+                    else:
+                        y_orientacion=-1
+                        y_rango_1 = 4
+                        y_rango_2 = -1
         		for i in range(y_rango_1, y_rango_2, y_orientacion):
         			time.sleep(0.01)
         			if i==0:
