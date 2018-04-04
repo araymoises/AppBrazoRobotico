@@ -68,14 +68,14 @@ class Mover(Resource):
     		x_brazo = x_brazo + x_orientacion
     		print "X: " + str(x_brazo)
 
-        if int(x)>x_brazo:
-            x_orientacion=1
-            x_rango_1 = 0
-            x_rango_2 = 4
+        if int(y)>y_brazo:
+            y_orientacion=1
+            y_rango_1 = 0
+            y_rango_2 = 4
         else:
-            x_orientacion=-1
-            x_rango_1 = 4
-            x_rango_2 = -1
+            y_orientacion=-1
+            y_rango_1 = 4
+            y_rango_2 = -1
 
     	while y_brazo != int(y):
     		for i in range(y_rango_1, y_rango_2, y_orientacion):
