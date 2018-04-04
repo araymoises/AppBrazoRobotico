@@ -168,6 +168,7 @@ class Estirar(Resource):
 class Agarrar(Resource):
     def get(self):
         global agarrar
+        j = 0
         #x_brazo = x_brazo + int(x)
         #GPIO.cleanup()
         if agarrar==0:
@@ -181,7 +182,7 @@ class Agarrar(Resource):
             a_rango_2 = -1
             response  = "La pinza soltó correctamente."
 
-        while a_brazo != int(z):
+        while j < 50:
             for i in range(a_rango_1, a_rango_2, a_orientacion):
                 time.sleep(0.01)
                 if i==0:
@@ -208,6 +209,7 @@ class Agarrar(Resource):
                     GPIO.output(27, 0)
                     GPIO.output(22, 1)
                     print "i es 3"
+                j = j + 1
         agarrar = 1
 	return response
 
