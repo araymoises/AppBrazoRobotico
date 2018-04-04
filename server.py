@@ -156,7 +156,8 @@ class Estirar(Resource):
     				print "i es 3"
     		z_brazo = z_brazo + z_orientacion
     		print "Z: " + str(z_brazo)
-	return true
+        response = str(z_brazo)
+	return response
 
 class Employees_Name(Resource):
     def get(self, employee_id):
