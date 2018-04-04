@@ -34,8 +34,8 @@ class Mover(Resource):
             rango_2 = 4
         else:
             orientacion=-1
-            rango_1 = 5
-            rango_2 = 0
+            rango_1 = 4
+            rango_2 = -1
 
     	while x_brazo != int(x):
     		for i in range(rango_1,rango_2,orientacion):
