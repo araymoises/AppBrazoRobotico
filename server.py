@@ -66,7 +66,7 @@ class Mover(Resource):
     				GPIO.output(22, 1)
     				print "i es 3"
     		x_brazo = x_brazo + x_orientacion
-    		print "X: " + x_brazo
+    		print "X: " + str(x_brazo)
 
         if int(x)>x_brazo:
             x_orientacion=1
@@ -105,8 +105,8 @@ class Mover(Resource):
     				GPIO.output(22, 1)
     				print "i es 3"
     		y_brazo = y_brazo + y_orientacion
-    		print "Y: " + y_brazo
-	return str(x_brazo) + "," + str(y_brazo)
+    		print "Y: " + str(y_brazo)
+	return  + "," + str(y_brazo)
 
 class Tracks(Resource):
     def get(self):
