@@ -106,7 +106,7 @@ class Mover(Resource):
     				print "i es 3"
     		y_brazo = y_brazo + y_orientacion
     		print "Y: " + y_brazo
-	return x_brazo + "," + y_brazo
+	return str(x_brazo) + "," + str(y_brazo)
 
 class Tracks(Resource):
     def get(self):
