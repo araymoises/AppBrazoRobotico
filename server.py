@@ -215,7 +215,7 @@ class Agarrar(Resource):
 
 api.add_resource(Mover, '/mover/<x>/<y>')
 api.add_resource(Estirar, '/estirar/<z>')
-api.add_resource(Agarrar, '/agarrar')
+api.add_resource(Agarrar, '/agarrar/')
 
 
 if __name__ == '__main__':
